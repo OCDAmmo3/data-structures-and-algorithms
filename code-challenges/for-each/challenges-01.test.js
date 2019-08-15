@@ -56,8 +56,8 @@ const removeOne = (num, arr) => {
 };
 
 const removeElements = (arr, callback) => {
-    for(let i = 0; i < arr.length + 1; i++) {
-        callback(i, arr);
+    for(let i = 0; i < arr.length; i++) {
+        callback(arr[i], arr);
     }
     return arr;
 };
@@ -138,7 +138,7 @@ Return the resulting output array.
 const fizzbuzz = (arr) => {
     let output = [];
     arr.forEach(item => {
-        if(item % 3 === 0 && item % 5 === 0) {
+        if(item % 15 === 0) {
             output.push('Fizz Buzz');
         } else if(item % 3 === 0) {
             output.push('Fizz');
