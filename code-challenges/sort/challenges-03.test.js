@@ -128,9 +128,20 @@ If two people have the same full name, the younger one should come first. Do not
 
 const sortPeopleBetter = (arr) => {
     arr.sort(function(a,b){
+      if(a.lastName !== b.lastName && a.firstName !== b.firstName){
         if(a.lastName > b.lastName){return 1}
-        if(b.lastName > a.lastName){return -1}
+        if(a.lastName < b.lastName){return -1}
         return 0
+      }
+      else if(a.lastName === b.lastName && a.firstName !== b.firstName){
+        if(a.firstName > b.firstName){return 1}
+        if(a.firstName < b.firstName){return -1}
+        return 0
+      } else if(a.lastName === b.lastName && a.firstName === b.firstName){
+        if(a.age > b.age){return 1}
+        if(a.age < b.age){return -1}
+        return 0
+      }
     })
     return arr;
 };
@@ -158,11 +169,7 @@ const meetings = [
 ];
 
 const sortMeetingsByDay = (arr) => {
-    arr.sort(function(a,b){
-        if(a.dayOfWeek > b.dayOfWeek){return 1}
-        if(a.dayOfWeek < b.dayOfWeek){return -1}
-        return 0
-    })
+  
 };
 
 /* ------------------------------------------------------------------------------------------------
