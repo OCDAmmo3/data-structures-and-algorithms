@@ -127,8 +127,8 @@ const snorlaxAbilities = {
 };
 
 const extractAbilities = (arr) => {
-    return arr.map((ability)=>{
-        return ability.ability.name;
+    return arr.map((abilities)=>{
+        return abilities.ability.name;
     })
 };
 
@@ -176,7 +176,12 @@ const snorlaxStats = {
 };
 
 const extractStats = (arr) => {
-    
+  return arr.map((statInfo) => {
+    return {
+      name: statInfo.stat.name,
+      total: statInfo.effort + statInfo.baseStat
+    }
+  })
 };
 
 /* ------------------------------------------------------------------------------------------------
