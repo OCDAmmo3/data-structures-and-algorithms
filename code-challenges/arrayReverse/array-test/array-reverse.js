@@ -1,10 +1,12 @@
 'use strict';
 
-let val = module.exports = {};
-
 const reverseArray = (arr) => {
-  arr.forEach(element => {
-    let popped = arr.pop(0);
-    arr.push(popped);
-  });
+  let newArr = [];
+  for (let i = 0; arr.length > 0; i++) {
+    let popped = arr.pop(i);
+    newArr.push(popped);
+  };
+  return newArr;
 };
+
+module.exports = reverseArray;
