@@ -23,7 +23,7 @@ class LinkedLists {
       }
       else if(curr === null){
         curr = curr.next;
-      } else{
+      } else {
       return false;
       }
     }
@@ -31,15 +31,47 @@ class LinkedLists {
 
   toString() {
     let curr = this.head;
-    let stringified = '';
-
-    while(curr !== null) {
-      if(curr === this.head) {
-        stringified = stringified + curr.value;
-        curr = curr.next;
-      }
+    let listArray = [];
+    while(curr) {
+      listArray.push(curr.value);
+      curr = curr.next;
     }
-    return stringified;
+    return listArray.join(',');
+  }
+  
+  append(input) {
+    let curr = this.head;
+    let newNode = new Node(input);
+    while(curr.next) {
+      curr = curr.next;
+    }
+    curr.next = newNode;
+  }
+
+  insertBefore(input, newValue) {
+    let curr = this.head;
+    let newNode = new Node(newValue);
+    while(curr.next) {
+      if(curr.next.value === input) {
+        let oldNode = curr.next;
+        curr.next = newNode;
+        curr.next.next = oldNode;
+      }
+      curr = curr.next;
+    }
+  }
+
+  insertAfter(input, newValue) {
+    let curr = this.head;
+    let newNode = new Node(newValue);
+    while(curr.next) {
+      if(curr.value === input) {
+        let oldNode = curr.next;
+        curr.next = newNode;
+        curr.next.next = oldNode;
+      }
+      curr = curr.next;
+    }
   }
   
 };
