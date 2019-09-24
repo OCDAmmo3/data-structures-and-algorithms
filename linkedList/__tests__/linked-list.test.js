@@ -61,6 +61,7 @@ describe('testing edits of linked lists', () => {
   it('takes existing node and new value, adds new value one step before existing node', () => {
     // Arrange
     let list = new LinkedLists();
+    list.insert(15);
     list.insert(10);
     list.insert(5);
     list.insert(1);
@@ -69,11 +70,13 @@ describe('testing edits of linked lists', () => {
     list.insertBefore(10, 6);
 
     // Assert
-    expect(list.toString()).toEqual('1,5,6,10');
+    expect(list.toString()).toEqual('1,5,6,10,15');
   });
+
   it('takes existing node and new value, adds new value one step after existing node', () => {
     // Arrange
     let list = new LinkedLists();
+    list.insert(15);
     list.insert(10);
     list.insert(5);
     list.insert(1);
@@ -82,6 +85,47 @@ describe('testing edits of linked lists', () => {
     list.insertAfter(1, 2);
 
     // Assert
-    expect(list.toString()).toEqual('1,2,5,10');
+    expect(list.toString()).toEqual('1,2,5,10,15');
+  });
+
+  it('takes a number and returns the value of that number node from the end', () => {
+    // Arrange
+    let list = new LinkedLists();
+    list.insert(30);
+    list.insert(25);
+    list.insert(20);
+    list.insert(15);
+    list.insert(10);
+    list.insert(5);
+    list.insert(1);
+    list.insert(0);
+
+    // Act
+    let result = list.kthFromEnd(3);
+
+    // Assert
+    expect(result).toEqual(20);
+  });
+
+  it('takes a number and returns with error when looking through empty list', () => {
+    // Arrange
+    let list = new LinkedLists();
+
+    // Act + Assert
+    expect(() => {
+      list.kthFromEnd(3);
+    }).toThrow('Error, there is no list here.');
+  });
+
+  it('takes a number and returns with error when looking for number longer than list length', () => {
+    // Arrange
+    let list = new LinkedLists();
+    list.insert(5);
+    list.insert(1);
+
+    // Act + Assert
+    expect(() => {
+      list.kthFromEnd(3);
+    }).toThrow('Error, there is no list here.');
   });
 });

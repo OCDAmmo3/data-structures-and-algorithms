@@ -46,6 +46,7 @@ class LinkedLists {
       curr = curr.next;
     }
     curr.next = newNode;
+    this.length++;
   }
 
   insertBefore(input, newValue) {
@@ -59,6 +60,7 @@ class LinkedLists {
       }
       curr = curr.next;
     }
+    this.length++;
   }
 
   insertAfter(input, newValue) {
@@ -72,8 +74,22 @@ class LinkedLists {
       }
       curr = curr.next;
     }
+    this.length++;
   }
   
+  kthFromEnd(k) {
+    let curr = this.head;
+    let listLength = this.length;
+    if(k > listLength){
+      throw "Error, there is no list here.";
+    }
+    while(listLength - k > 0 && curr !== null) {
+      curr = curr.next;
+      listLength--;
+    }
+    return curr.value;
+  }
+
 };
 
 class Node {
