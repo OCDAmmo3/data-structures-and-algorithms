@@ -5,7 +5,7 @@ const reverseArray = (arr) => {
   for (let i = 0; arr.length > 0; i++) {
     let popped = arr.pop(i);
     newArr.push(popped);
-  };
+  }
   return newArr;
 };
 

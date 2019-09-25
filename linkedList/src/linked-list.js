@@ -24,7 +24,7 @@ class LinkedLists {
       else if(curr === null){
         curr = curr.next;
       } else {
-      return false;
+        return false;
       }
     }
   }
@@ -38,7 +38,7 @@ class LinkedLists {
     }
     return listArray.join(',');
   }
-  
+
   append(input) {
     let curr = this.head;
     let newNode = new Node(input);
@@ -76,12 +76,12 @@ class LinkedLists {
     }
     this.length++;
   }
-  
+
   kthFromEnd(k) {
     let curr = this.head;
     let listLength = this.length;
     if(k > listLength){
-      throw "Error, there is no list here.";
+      throw 'Error, there is no list here.';
     }
     while(listLength - k > 0 && curr !== null) {
       curr = curr.next;
@@ -90,7 +90,7 @@ class LinkedLists {
     return curr.value;
   }
 
-};
+}
 
 class Node {
   constructor(input) {

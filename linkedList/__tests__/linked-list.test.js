@@ -26,7 +26,7 @@ describe('testing edits of linked lists', () => {
     list.insert(1);
     let responseProper = list.includes(1);
     let responseImproper = list.includes(5);
-    
+
     // Assert
     expect(responseProper).toEqual(true);
     expect(responseImproper).toEqual(false);

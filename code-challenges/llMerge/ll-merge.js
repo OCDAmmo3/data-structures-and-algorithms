@@ -20,7 +20,7 @@ let mergeLists = (list1, list2) => {
       newList.append(curr1.value);
       curr1 = curr1.next;
     }
-  };
+  }
   return newList;
 };
 
