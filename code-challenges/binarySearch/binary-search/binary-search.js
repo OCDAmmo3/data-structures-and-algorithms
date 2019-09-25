@@ -1,6 +1,6 @@
 'use strict';
 
-let binarySearch = (array,key) => { 
+let binarySearch = (array,key) => {
   let middle = Math.floor(array.length/2);
   let left = 0;
   let right = array.length -1;
