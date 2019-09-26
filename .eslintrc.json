@@ -49,6 +49,7 @@
                 "builtinGlobals": true
             }
         ],
-        "eol-last": "error"
+        "eol-last": "error",
+        "no-unused-vars": [1, {"vars": "local", "args": "none"}]
     }
 }
