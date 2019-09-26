@@ -50,6 +50,6 @@
             }
         ],
         "eol-last": "error",
-        "no-unused-vars": [1, {"vars": "local", "args": ""}]
+        "no-unused-vars": [1, {"vars": "local", "args": "none"}]
     }
 }
