@@ -130,50 +130,41 @@ describe('testing edits of linked lists', () => {
     }).toThrow('Error, there is no list here.');
   });
 
-  it('takes in 2 equal length lists and merges them together, returning one list with the nodes from each alternating between the two', () => {
-    // Arrange
-    let list1 = new LinkedLists();
-    let list2 = new LinkedLists();
-    list1.insert(25);
-    list1.insert(23);
-    list1.insert(21);
-    list1.insert(19);
-    list1.insert(17);
-    list1.insert(15);
-    list2.insert(24);
-    list2.insert(22);
-    list2.insert(20);
-    list2.insert(18);
-    list2.insert(16);
-    list2.insert(14);
-
-    // Act
-    let merged = mergeLists(list1, list2);
-
-    // Assert
-    expect(list1.toString()).toBe('15,17,19,21,23,25');
-    expect(list2.toString()).toBe('14,16,18,20,22,24');
-    expect(merged.toString()).toBe('15,14,17,16,19,18,21,20,23,22,25,24');
-  });
-
   it('takes in 2 different length lists and merges them together, returning one list with the nodes from each alternating between the two', () => {
     // Arrange
     let list1 = new LinkedLists();
     let list2 = new LinkedLists();
+    let list3 = new LinkedLists();
+    let list4 = new LinkedLists();
     list1.insert(25);
     list1.insert(20);
     list1.insert(15);
-    list1.insert(5);
-    list1.insert(0);
     list2.insert(10);
     list2.insert(1);
+    list3.insert(5);
 
     // Act
-    let merged = mergeLists(list1, list2);
+    let merged = mergeLists(list1, list1);
+    let merged1 = mergeLists(list1, list2);
+    let merged2 = mergeLists(list1, list3);
+    let merged3 = mergeLists(list1, list4);
+    let merged4 = mergeLists(list2, list3);
+    let merged5 = mergeLists(list2, list4);
+    let merged6 = mergeLists(list3, list4);
+    let merged7 = mergeLists(list4, list4);
 
     // Assert
-    expect(list1.toString()).toBe('0,5,15,20,25');
+    expect(list1.toString()).toBe('15,20,25');
     expect(list2.toString()).toBe('1,10');
-    expect(merged.toString()).toBe('0,1,5,10,15,20,25');
+    expect(list3.toString()).toBe('5');
+    expect(list4.head).toBe(null);
+    expect(merged.toString()).toBe('15,15,20,20,25,25');
+    expect(merged1.toString()).toBe('15,1,20,10,25');
+    expect(merged2.toString()).toBe('15,5,20,25');
+    expect(merged3.toString()).toBe('15,20,25');
+    expect(merged4.toString()).toBe('1,5,10');
+    expect(merged5.toString()).toBe('1,10');
+    expect(merged6.toString()).toBe('5');
+    expect(merged7.toString()).toBe('');
   });
 });
