@@ -26,10 +26,12 @@ describe('Stacks Testing', () => {
     stack.push(4);
 
     // Act
-    stack.pop();
-    stack.pop();
+    let popped1 = stack.pop();
+    let popped2 = stack.pop();
 
     // Assert
+    expect(popped1).toBe(4);
+    expect(popped2).toBe(3);
     expect(stack.top).toHaveProperty('value', 2);
     expect(stack.length).toBe(2);
     expect(stack.toString()).toBe('2,1');

@@ -36,9 +36,10 @@ class Stack {
     if(!this.top) {
       return;
     }
+    let result = this.top.value;
     this.top = this.top.next;
     this.length--;
-    return this.top;
+    return result;
   }
 
   peek() {
