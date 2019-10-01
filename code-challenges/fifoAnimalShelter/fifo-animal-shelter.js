@@ -38,30 +38,36 @@ class AnimalShelter {
     if(pref !== 'dog' && pref !== 'cat') {
       return null;
     }
-    if(!this.front){
+    if(!this.front) {
       return null;
     } else {
-      let temp = this.front;
-      while(temp.next) {
-        if(temp !== pref) {
-          temp = temp.next;
-        } else {
-          let temp2 = this.front;
+      let stepper = this.front;
+      while(stepper) {
+        if(stepper.value === pref) {
+          let result = stepper.value;
           this.front = this.front.next;
           this.front.previous = null;
           this.length--;
-          return temp2.value;
+          return result.value;
+        }
+        if(stepper.value !== pref) {
+          if(!stepper.next) {
+            return null;
+          }
+          if(stepper.next) {
+            stepper = stepper.next;
+          }
         }
       }
     }
   }
 
   toArray() {
-    let curr = this.front;
+    let stepper = this.front;
     let listArray = [];
-    while(curr) {
-      listArray.push(curr.value);
-      curr = curr.next;
+    while(stepper) {
+      listArray.push(stepper.value);
+      stepper = stepper.next;
     }
     return listArray;
   }

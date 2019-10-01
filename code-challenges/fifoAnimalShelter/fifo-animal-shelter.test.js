@@ -54,20 +54,20 @@ describe('Animal Shelter Queue', () => {
     shelter.enqueue(cat);
     shelter.enqueue(dog);
 
-    // Act
+    // Act + Assert
     let byecat = shelter.dequeue(cat);
-    let byedog = shelter.dequeue(dog);
-    let nodog = shelter.dequeue(dog);
-    let nohorse = shelter.dequeue(horse);
-    let nopig = shelter.dequeue(pig);
-
-    // Assert
-    expect(shelter.toArray()).toEqual([cat,cat,cat]);
     expect(byecat).toBe(cat);
+    expect(shelter.toArray()).toEqual([cat,cat,cat,dog]);
+    let byedog = shelter.dequeue(dog);
     expect(byedog).toBe(dog);
+    expect(shelter.toArray()).toEqual([cat,cat,cat]);
+    let nodog = shelter.dequeue(dog);
     expect(nodog).toBe(null);
+    let nohorse = shelter.dequeue(horse);
     expect(nohorse).toBe(null);
+    let nopig = shelter.dequeue(pig);
     expect(nopig).toBe(null);
+    expect(shelter.length).toBe(3);
   });
 
   it('can take away dogs only each time, if specified', () => {
