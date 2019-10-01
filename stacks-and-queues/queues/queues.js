@@ -46,7 +46,7 @@ class Queue {
       let temp = this.front;
       this.front = null;
       this.length--;
-      return temp;
+      return temp.value;
     } else {
       let temp = this.front;
       this.front = this.front.next;
