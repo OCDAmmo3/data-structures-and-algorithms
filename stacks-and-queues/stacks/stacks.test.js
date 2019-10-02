@@ -14,7 +14,7 @@ describe('Stacks Testing', () => {
     // Assert
     expect(stack.top).toHaveProperty('value', 2);
     expect(stack.length).toBe(2);
-    expect(stack.toString()).toBe('2,1')
+    expect(stack.toString()).toBe('21')
   });
 
   it('can pop a Node off the top of the stack', () => {
@@ -34,7 +34,7 @@ describe('Stacks Testing', () => {
     expect(popped2).toBe(3);
     expect(stack.top).toHaveProperty('value', 2);
     expect(stack.length).toBe(2);
-    expect(stack.toString()).toBe('2,1');
+    expect(stack.toString()).toBe('21');
   });
 
   it('returns the value of the top of the stack', () => {

@@ -20,7 +20,7 @@ class Stack {
       listArray.push(curr.value);
       curr = curr.next;
     }
-    return listArray.join(',');
+    return listArray.join('');
   }
 
   push(value) {
