@@ -11,6 +11,7 @@ describe('Multi Brack Validator', () => {
     [true, '[{()}]'],
     [false, '[('],
     [false, '['],
+    [false, '([)]'],
     [false, '({[}])'],
     [false, '[[[[]]]'],
   ])('should return %s for %s', (expectedResult, string) => {
