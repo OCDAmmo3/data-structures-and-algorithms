@@ -30,6 +30,16 @@ class BinarySearchTree {
   }
 
   contains(value, root = this.root) {
+    if(!root) {
+      return false;
+    } else if(root.value === value) {
+      return true;
+    }
+    if(value < root.value) {
+      return this.contains(value, root.left);
+    } else if(value > root.value) {
+      return this.contains(value, root.right);
+    }
   }
 
 }
