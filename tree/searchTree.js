@@ -11,6 +11,7 @@ class Node {
 class BinarySearchTree {
   constructor() {
     this.root = null;
+    this.length = 0;
   }
 
   add(value) {
@@ -22,3 +23,5 @@ class BinarySearchTree {
   }
 
 }
+
+module.exports = BinarySearchTree;

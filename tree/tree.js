@@ -5,17 +5,37 @@ class BinaryTree {
     this.root = null;
   }
 
-  preOrder() {
-    let results = [];
+  preOrder(root = this.root, results = []) {
+    results.push(root.value);
+    if(root.left) {
+      this.preOrder(root.left, results);
+    }
+    if(root.right) {
+      this.preOrder(root.right, results);
+    }
     return results;
   }
 
-  inOrder() {
-    let results = [];
+  inOrder(root = this.root, results = []) {
+    if(root.left) {
+      this.inOrder(root.left, results);
+    }
+    results.push(root.value);
+    if(root.right) {
+      this.inOrder(root.right, results);
+    }
+    return results;
   }
 
-  postOrder() {
-    let results = [];
+  postOrder(root = this.root, results = []) {
+    if(root.left) {
+      this.postOrder(root.left, results);
+    }
+    if(root.right) {
+      this.postOrder(root.right, results);
+    }
+    results.push(root.value);
+    return results;
   }
 
 }
