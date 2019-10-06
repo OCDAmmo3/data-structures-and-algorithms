@@ -10,6 +10,8 @@ describe('Multi Brack Validator', () => {
     [true, '()'],
     [true, '[]'],
     [true, '[{()}]'],
+    [true, '[apple pie]{}'],
+    [true, '[apple]{pie}(is){[yummy]}'],
     [false, '[('],
     [false, '['],
     [false, '([)]'],
