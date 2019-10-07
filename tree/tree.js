@@ -39,19 +39,19 @@ class BinaryTree {
   }
 
   fizzBuzzTree(root = this.root, results = []) {
-    results.push(root.value);
-    if(root.left) {
-      this.preOrder(root.left, results);
-    }
-    if(root.right) {
-      this.preOrder(root.right, results);
-    }
     if(root.value % 15 === 0) {
       root.value = 'FizzBuzz';
     } else if(root.value % 5 === 0) {
       root.value = 'Buzz';
     } else if(root.value % 3 === 0) {
       root.value = 'Fizz';
+    }
+    results.push(root.value);
+    if(root.left) {
+      this.fizzBuzzTree(root.left, results);
+    }
+    if(root.right) {
+      this.fizzBuzzTree(root.right, results);
     }
     return results;
   }
