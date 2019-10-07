@@ -1,5 +1,7 @@
 'use strict';
 
+const BinaryTree = require('./tree');
+
 class Node {
   constructor(value) {
     this.value = value;
@@ -8,11 +10,7 @@ class Node {
   }
 }
 
-class BinarySearchTree {
-  constructor() {
-    this.root = null;
-    this.length = 0;
-  }
+class BinarySearchTree extends BinaryTree {
 
   add(value, root = this.root) {
     if(!root) {
