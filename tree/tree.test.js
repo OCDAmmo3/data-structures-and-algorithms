@@ -70,4 +70,16 @@ describe('Binary Trees Tests', () => {
     // Assert
     expect(results).toEqual(['Buzz',13,'Buzz','FizzBuzz',62,'Fizz',29,'FizzBuzz',313]);
   });
+
+  it('should return an array with the values in breadth first order, top, left to right, down a step, left to right, continue', () => {
+    // Arrange
+    let tree = new BinaryTree();
+    treeMaker(tree);
+
+    // Act
+    let results = tree.breadth(tree.root);
+
+    // Assert
+    expect(results).toEqual([20,13,62,5,15,36,313,29,45]);
+  });
 });

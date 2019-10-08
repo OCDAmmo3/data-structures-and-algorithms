@@ -1,5 +1,7 @@
 'use strict';
 
+let Queue = require('../stacks-and-queues/queues/queues');
+
 class BinaryTree {
   constructor() {
     this.root = null;
@@ -35,6 +37,23 @@ class BinaryTree {
       this.postOrder(root.right, results);
     }
     results.push(root.value);
+    return results;
+  }
+
+  breadth(root = this.root) {
+    let breadth = new Queue();
+    let results = [];
+    breadth.enqueue(root);
+    while(breadth.peek()) {
+      let front = breadth.dequeue();
+      results.push(front.value);
+      if(front.left) {
+        breadth.enqueue(front.left);
+      }
+      if(front.right) {
+        breadth.enqueue(front.right);
+      }
+    }
     return results;
   }
 

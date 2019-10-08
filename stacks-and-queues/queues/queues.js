@@ -42,7 +42,7 @@ class Queue {
   dequeue() {
     if(!this.front) {
       return;
-    } else if(!this.length === 1) {
+    } else if(this.length === 1) {
       let temp = this.front;
       this.front = null;
       this.length--;
