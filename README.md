@@ -1,6 +1,6 @@
-# Code Challenge 16
+# Code Challenge 17
 
-## FizzBuzz Trees
+## Breadth First Search
 
 ### Jon Struve
 
