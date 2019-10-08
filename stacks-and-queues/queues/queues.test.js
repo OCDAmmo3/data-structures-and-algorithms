@@ -39,17 +39,15 @@ describe('Queues Testing', () => {
     queue.enqueue(2);
     queue.enqueue(3);
     queue.enqueue(4);
+    queue.enqueue(5);
 
-    // Act
-    let dqd1 = queue.dequeue();
-    let d1d2 = queue.dequeue();
-
-    // Assert
-    expect(dqd1).toBe(1);
-    expect(d1d2).toBe(2);
-    expect(queue.front).toHaveProperty('value', 3);
-    expect(queue.toString()).toBe('3,4');
-    expect(queue.length).toBe(2);
+    // Act + Assert
+    expect(queue.toString()).toEqual('1,2,3,4,5');
+    expect(queue.dequeue()).toBe(1);
+    expect(queue.dequeue()).toBe(2);
+    expect(queue.dequeue()).toBe(3);
+    expect(queue.dequeue()).toBe(4);
+    expect(queue.dequeue()).toBe(5);
   });
 
   it('can look at the front Node and receive it\'s value', () => {
