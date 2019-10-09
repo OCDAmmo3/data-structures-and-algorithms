@@ -129,4 +129,16 @@ describe('Binary Trees Tests', () => {
     expect(results1).toEqual([1,2,3,4,5]);
     expect(results2).toEqual([1,2,3,4,5]);
   });
+
+  it('should return the largest value in the tree', () => {
+    // Arrange
+    let tree = new BinaryTree();
+    treeMaker(tree);
+
+    // Act
+    let result = tree.findMax(tree);
+
+    // Assert
+    expect(result).toBe(313);
+  });
 });

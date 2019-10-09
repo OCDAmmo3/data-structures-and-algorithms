@@ -1,12 +1,9 @@
-# Code Challenge 17
+# Code Challenge 18
 
-## Breadth First Search
+## Find Max
 
 ### Jon Struve
 
 ### Links and Resources
-* [submission PR](https://github.com/OCDAmmo3/data-structures-and-algorithms/pull/26)
+* [submission PR](https://github.com/OCDAmmo3/data-structures-and-algorithms/pull/28)
 * [travis](https://travis-ci.com/OCDAmmo3/data-structures-and-algorithms/builds/131016212)
-
-### White Board
-![UML](./assets/images/WBCC.jpeg)
