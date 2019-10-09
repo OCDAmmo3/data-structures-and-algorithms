@@ -75,6 +75,30 @@ class BinaryTree {
     return results;
   }
 
+  findMax(root = this.root) {
+    let queue = new Queue();
+    let compare = new Queue();
+    queue.enqueue(root);
+    while(queue.next) {
+      let front = queue.dequeue();
+      if(front.left) {
+        queue.enqueue(front.left);
+      }
+      if(front.right) {
+        queue.enqueue(front.right);
+      }
+    }
+    let front = queue.front;
+    while(front.next) {
+      if(front.value > front.next.value) {
+        compare.enqueue(front);
+      } else {
+        front = front.next;
+      }
+    }
+    return compare.front.value;
+  }
+
 }
 
 module.exports = BinaryTree;
