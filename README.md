@@ -1,6 +1,6 @@
-# Code Challenge 18
+# Code Challenge 26
 
-## Find Max
+## Insertion Sort
 
 ### Jon Struve
 
