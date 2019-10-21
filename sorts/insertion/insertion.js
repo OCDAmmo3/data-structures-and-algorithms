@@ -1,9 +1,6 @@
 'use strict';
 
 function insertionSort(list) {
-  if(!Array.isArray(list)) {
-    list.toArray;
-  }
   for(let i = 0; i < list.length; i++) {
     let j = i - 1;
     let temp = list[i];
