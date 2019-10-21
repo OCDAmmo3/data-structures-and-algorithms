@@ -39,6 +39,16 @@ class LinkedLists {
     return listArray.join(',');
   }
 
+  toArray() {
+    let curr = this.head;
+    let listArray = [];
+    while(curr) {
+      listArray.push(curr.value);
+      curr = curr.next;
+    }
+    return listArray;
+  }
+
   append(input) {
     let curr = this.head;
     let newNode = new Node(input);

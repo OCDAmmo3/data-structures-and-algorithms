@@ -25,6 +25,16 @@ class Queue {
     return listArray.join(',');
   }
 
+  toArray() {
+    let curr = this.front;
+    let listArray = [];
+    while(curr) {
+      listArray.push(curr.value);
+      curr = curr.next;
+    }
+    return listArray;
+  }
+
   enqueue(value) {
     let newNode = new Node(value);
     if(!this.front) {
