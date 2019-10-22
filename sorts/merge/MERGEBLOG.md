@@ -24,3 +24,10 @@ The sort then goes through this until it eventually compares 2 halves of the ent
     [[1,7,15,25],[26,34,65,432],[23,50,74,100],[12,13,57,61]] -- Every pair getting combined with another pair
     [[1,7,15,25,26,34,65,432],[12,13,23,50,57,61,74,100]] -- Every set of 4 combined with another set of 4
     [1,7,12,13,15,23,25,26,34,50,57,61,65,74,100,432] -- Every set of 8 combined with another set of 8, giving us our complete list in this instance.
+
+
+#### Resources I Used
+
+https://medium.com/javascript-in-plain-english/javascript-merge-sort-3205891ac060  
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat  
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice  
