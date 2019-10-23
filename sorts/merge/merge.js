@@ -18,7 +18,7 @@ function mergeSort(array) {
 function merge(left, right) {
   let result = [], leftIndex = 0, rightIndex = 0;
 
-  // While the index we're looking for exists for both lists, 
+  // While the index we're looking for exists for both lists,
   while(leftIndex < left.length && rightIndex < right.length) {
     if(left[leftIndex] < right[rightIndex]) {
       // If the number at the index you're peeking currently in the left side is less than the right, push that in before the right.
