@@ -4,6 +4,7 @@ let Stack = require('../../stacks-and-queues/stacks/stacks');
 
 let multiBracketValidation = input => {
   let stack = new Stack();
+  let half;
   let map = {
     '{': '}',
     '[': ']',
