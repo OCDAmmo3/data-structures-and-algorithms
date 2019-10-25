@@ -1,20 +1,23 @@
 'use strict';
 
-const hash = string => {
-  if(string === undefined || string === null) {
-    return false;
+const hashString = string => {
+  let a = 1;
+  let c = 0;
+  let h;
+  let o;
+  if(typeof string !== 'string') {
+    return 'I need a string';
   }
-  if(typeof string === 'object') {
-    string = string.toString();
+  if(string) {
+    a = 0;
+    for(h = string.length - 1; h >= 0; h--) {
+      o = string.charCodeAt(h);
+      a = (a<<6&268435455) + o + (o<<14);
+      c = a & 266338304;
+      a = c!==0?a^c>>21:a;
+    }
   }
-  if(typeof string === 'number') {
-    string = string.toString();
-  }
-  if(typeof string === 'string') {
-    return true;
-  } else {
-    return undefined;
-  }
+  return String(a);
 };
 
-module.exports = hash;
+module.exports = hashString;
