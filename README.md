@@ -1,6 +1,6 @@
-# Code Challenge 28
+# Code Challenge 30
 
-## Quick Sort
+## Hash Tables
 
 ### Jon Struve
 
