@@ -10,10 +10,12 @@ describe('Hash Table Functionality', () => {
     // Act
     let hashed = hash(string);
     let hashedNum = hash(4);
+    let hashedNull = hash(null);
 
     // Assert
     expect(hashed).toBe(true);
-    expect(hashedNum).toBe(false);
+    expect(hashedNum).toBe(true);
+    expect(hashedNull).toBe(false);
   });
 });
 

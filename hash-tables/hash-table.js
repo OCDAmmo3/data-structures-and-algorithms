@@ -1,11 +1,14 @@
 'use strict';
 
 const hash = string => {
+  if(string === undefined || string === null) {
+    return false;
+  }
   if(typeof string === 'object') {
-    string.toString();
+    string = string.toString();
   }
   if(typeof string === 'number') {
-    string.toString();
+    string = string.toString();
   }
   if(typeof string === 'string') {
     return true;
