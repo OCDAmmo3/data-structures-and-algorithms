@@ -1,23 +1,14 @@
 'use strict';
 
-const hashString = string => {
-  let a = 1;
-  let c = 0;
-  let h;
-  let o;
-  if(typeof string !== 'string') {
-    return 'I need a string';
+String.prototype.hashMethod = function() {
+  var hash = 0;
+  if(this.length === 0) {
+    return hash;
   }
-  if(string) {
-    a = 0;
-    for(h = string.length - 1; h >= 0; h--) {
-      o = string.charCodeAt(h);
-      a = (a<<6&268435455) + o + (o<<14);
-      c = a & 266338304;
-      a = c!==0?a^c>>21:a;
-    }
+  for(var i = 0; i < this.length; i++) {
+    var char = this.charCodeAt(i);
+    hash = ((hash<<5) - hash) + char;
+    hash = hash & hash;
   }
-  return String(a);
-};
-
-module.exports = hashString;
+  return hash;
+}

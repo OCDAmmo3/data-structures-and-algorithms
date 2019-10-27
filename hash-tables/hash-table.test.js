@@ -1,17 +1,18 @@
 'use strict';
 
-const hash = require('./hash-table');
+const HashString = require('./hash-table');
 
 describe('Hash Table Functionality', () => {
   it('can hash an item to the table', () => {
     // Arrange
     let string = 'cheese whiz';
+    let hashed = new HashString(string);
 
     // Act
-    let hashed = hash(string);
+    let rehashed = hashed.hashMethod();
 
     // Assert
-    expect(hashed).toBe(true);
+    expect(rehashed).toBe(true);
   });
 });
 
