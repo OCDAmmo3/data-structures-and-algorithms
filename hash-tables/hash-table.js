@@ -1,23 +1,23 @@
 'use strict';
 
-const hashString = string => {
-  let a = 1;
-  let c = 0;
-  let h;
-  let o;
-  if(typeof string !== 'string') {
-    return 'I need a string';
+class HashTable {
+  constructor(string) {
+    this.string = string;
   }
-  if(string) {
-    a = 0;
-    for(h = string.length - 1; h >= 0; h--) {
-      o = string.charCodeAt(h);
-      a = (a<<6&268435455) + o + (o<<14);
-      c = a & 266338304;
-      a = c!==0?a^c>>21:a;
-    }
-  }
-  return String(a);
-};
 
-module.exports = hashString;
+  hashMethod() {
+    if(typeof this.string !== 'string') {
+      this.string.toString();
+    }
+    let hashNumber = 0;
+    let charNumber;
+    for(let i = 0; i < this.string.length; i++) {
+      charNumber = this.string.charCodeAt(i);
+      hashNumber = hashNumber + charNumber;
+    }
+    hashNumber = Math.floor((hashNumber * 599) / 1024);
+    return hashNumber;
+  }
+}
+
+module.exports = HashTable;
