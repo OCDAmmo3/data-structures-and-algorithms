@@ -1,14 +1,23 @@
 'use strict';
 
-String.prototype.hashMethod = function() {
-  var hash = 0;
-  if(this.length === 0) {
-    return hash;
+class HashTable {
+  constructor(string) {
+    this.string = string;
   }
-  for(var i = 0; i < this.length; i++) {
-    var char = this.charCodeAt(i);
-    hash = ((hash<<5) - hash) + char;
-    hash = hash & hash;
+
+  hashMethod() {
+    if(typeof this.string !== 'string') {
+      this.string.toString();
+    }
+    let hashNumber = 0;
+    let charNumber;
+    for(let i = 0; i < this.string.length; i++) {
+      charNumber = this.string.charCodeAt(i);
+      hashNumber = hashNumber + charNumber;
+    }
+    hashNumber = Math.floor((hashNumber * 599) / 1024);
+    return hashNumber;
   }
-  return hash;
 }
+
+module.exports = HashTable;
