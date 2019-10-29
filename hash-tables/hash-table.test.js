@@ -25,10 +25,50 @@ describe('Hash Table Functionality', () => {
     let catHash = new HashTable();
 
     // Act
-    catHash.add(cat);
+    let result = catHash.add({cat: cat});
 
     // Assert
-    expect(catHash).toEqual({'182': 'cat'});
+    expect(result).toHaveProperty('value', {'cat': 'cat'});
+    expect(catHash.storage[182].head).toHaveProperty('value', {'cat': 'cat'});
+  });
+
+  it('can get a value out of the table based on hash', () => {
+    // Arrage
+    let catHash = new HashTable();
+    catHash.add({cat: cat});
+
+    // Act
+    let results = catHash.get(cat);
+
+    // Assert
+    expect(results).toEqual({cat: cat});
+  });
+
+  it('can check if a hash table contains a value', () => {
+    // Arrange
+    let catHash = new HashTable();
+    catHash.add({cat: cat});
+
+    // Act
+    let result = catHash.contains(cat);
+    let failed = catHash.contains('purple');
+
+    // Assert
+    expect(result).toBe(true);
+    expect(failed).toBe(false);
+  });
+
+  it('can fail properly', () => {
+    // Arrange
+    let catHash = new HashTable();
+
+    // Act
+    let result = catHash.add();
+    let result2 = catHash.add('asdf');
+
+    // Assert
+    expect(result).toBe('Invalid object');
+    expect(result2).toBe('Invalid object');
   });
 });
 
