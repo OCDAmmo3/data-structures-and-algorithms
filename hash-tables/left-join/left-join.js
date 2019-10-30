@@ -10,3 +10,18 @@ const leftJoin = (leftHash, rightHash) => {
       results.push(temp);
     })
   }
+  if(rightHash) {
+    rightHash.storage.forEach(index => {
+      results.forEach(array => {
+        if(Object.keys(index.head.value)[0] === array[0] && !array[2]) {
+          array[2] = Object.values(index.head.value)[0];
+        } else if(!array[2]) {
+          array[2] = null;
+        }
+      });
+    });
+  }
+  return results;
+}
+
+module.exports = leftJoin;
