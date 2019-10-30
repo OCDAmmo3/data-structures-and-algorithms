@@ -1,6 +1,6 @@
-# Code Challenge 30
+# Code Challenge 31
 
-## Hash Tables
+## Repeated Words
 
 ### Jon Struve
 
