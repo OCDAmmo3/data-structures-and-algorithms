@@ -21,12 +21,23 @@ class LinkedLists {
       if(curr.value === input) {
         return true;
       }
-      else if(curr === null){
-        curr = curr.next;
-      } else {
-        return false;
-      }
+      curr = curr.next;
     }
+    return false;
+  }
+
+  find(callback, replaceWith) {
+    let curr = this.head;
+    while(curr !== null) {
+      if(callback(curr.value)) {
+        if(arguments.length === 2) {
+          curr.value = replaceWith;
+        }
+        return true;
+      }
+      curr = curr.next;
+    }
+    return false;
   }
 
   toString() {
