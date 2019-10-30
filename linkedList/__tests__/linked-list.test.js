@@ -39,11 +39,28 @@ describe('testing edits of linked lists', () => {
 
     // Act
     list.insert(1);
+    list.insert(2);
     let responseProper = list.find(value => value === 1);
     let responseImproper = list.find(value => value === 5);
 
     // Assert
     expect(responseProper).toEqual(true);
+    expect(responseImproper).toEqual(false);
+  });
+
+  it('can replace a node in a linked list using a function', () => {
+    // Arrange
+    let list = new LinkedLists();
+
+    // Act
+    list.insert(1);
+    list.insert(2);
+    let responseProper = list.find(value => value === 1, 3);
+    let responseImproper = list.find(value => value === 5);
+
+    // Assert
+    expect(responseProper).toEqual(true);
+    expect(list.toString()).toEqual('2,3')
     expect(responseImproper).toEqual(false);
   });
 

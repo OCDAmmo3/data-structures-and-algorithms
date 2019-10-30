@@ -26,10 +26,13 @@ class LinkedLists {
     return false;
   }
 
-  find(callback) {
+  find(callback, replaceWith) {
     let curr = this.head;
     while(curr !== null) {
       if(callback(curr.value)) {
+        if(arguments.length === 2) {
+          curr.value = replaceWith;
+        }
         return true;
       }
       curr = curr.next;
