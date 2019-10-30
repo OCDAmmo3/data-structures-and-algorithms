@@ -1,6 +1,6 @@
-# Code Challenge 31
+# Code Challenge 32
 
-## Repeated Words
+## Tree Intersection
 
 ### Jon Struve
 
