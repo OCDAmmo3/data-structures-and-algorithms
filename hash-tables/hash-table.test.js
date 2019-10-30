@@ -16,8 +16,8 @@ describe('Hash Table Functionality', () => {
     let hashed2 = catHash.hashMethod(cat);
 
     // Assert
-    expect(hashed1).toBe(645);
-    expect(hashed2).toBe(182);
+    expect(hashed1).toBe(538);
+    expect(hashed2).toBe(152);
   });
 
   it('can add a string to the table based on hash', () => {
@@ -29,7 +29,7 @@ describe('Hash Table Functionality', () => {
 
     // Assert
     expect(result).toHaveProperty('value', {'cat': 'cat'});
-    expect(catHash.storage[182].head).toHaveProperty('value', {'cat': 'cat'});
+    expect(catHash.storage[152].head).toHaveProperty('value', {'cat': 'cat'});
   });
 
   it('can get a value out of the table based on hash', () => {

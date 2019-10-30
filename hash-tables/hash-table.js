@@ -2,21 +2,30 @@
 
 const LinkedList = require('../linkedList/src/linked-list');
 
+const objectKey = object => {
+  return Object.keys(object)[0];
+}
+
 class HashTable {
   constructor(count) {
     this.storage = [];
-    this.bucketCount = count || 1024;
+    this.bucketCount = count || 4096;
   }
 
   add(object) {
     if(!object || typeof object !== 'object') {
       return 'Invalid object';
     }
-    let hashedKey = this.hashMethod(Object.keys(object)[0]);
+    let hashedKey = this.hashMethod(objectKey(object));
     if(!this.storage[hashedKey]) {
       this.storage[hashedKey] = new LinkedList();
     }
-    this.storage[hashedKey].insert(object);
+    let existingObject = this.storage[hashedKey].find(kvp => {
+      return objectKey(kvp) === objectKey(object)
+    }, object);
+    if(!existingObject) {
+      this.storage[hashedKey].insert(object);
+    }
     return this.storage[hashedKey].head;
   }
 
@@ -54,7 +63,7 @@ class HashTable {
 
   hashMethod(string) {
     if(typeof string !== 'string') {
-      string.toString();
+      string = JSON.stringify(string);
     }
     let hashNumber = 0;
     let charNumber;
@@ -62,7 +71,7 @@ class HashTable {
       charNumber = string.charCodeAt(i);
       hashNumber = hashNumber + charNumber;
     }
-    hashNumber = Math.floor((hashNumber * 599) / this.bucketCount);
+    hashNumber = Math.floor((hashNumber * 1999) / this.bucketCount);
     return hashNumber;
   }
 }
