@@ -21,9 +21,8 @@ class LinkedLists {
       if(curr.value === input) {
         return true;
       }
-      else if(curr === null){
         curr = curr.next;
-      } else {
+    }
         return false;
       }
     }

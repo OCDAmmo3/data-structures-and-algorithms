@@ -24,6 +24,7 @@ describe('testing edits of linked lists', () => {
 
     // Act
     list.insert(1);
+    list.insert(2);
     let responseProper = list.includes(1);
     let responseImproper = list.includes(5);
 
