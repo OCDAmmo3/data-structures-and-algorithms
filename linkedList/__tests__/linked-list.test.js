@@ -33,6 +33,20 @@ describe('testing edits of linked lists', () => {
     expect(responseImproper).toEqual(false);
   });
 
+  it('can find if a node is included in a linked list using a function', () => {
+    // Arrange
+    let list = new LinkedLists();
+
+    // Act
+    list.insert(1);
+    let responseProper = list.find(value => value === 1);
+    let responseImproper = list.find(value => value === 5);
+
+    // Assert
+    expect(responseProper).toEqual(true);
+    expect(responseImproper).toEqual(false);
+  });
+
   it('returns a string of all values in the list', () => {
     // Arrange
     let list = new LinkedLists();

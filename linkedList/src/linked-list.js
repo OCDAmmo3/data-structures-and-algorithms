@@ -21,11 +21,20 @@ class LinkedLists {
       if(curr.value === input) {
         return true;
       }
-        curr = curr.next;
+      curr = curr.next;
     }
-        return false;
+    return false;
+  }
+
+  find(callback) {
+    let curr = this.head;
+    while(curr !== null) {
+      if(callback(curr.value)) {
+        return true;
       }
+      curr = curr.next;
     }
+    return false;
   }
 
   toString() {
