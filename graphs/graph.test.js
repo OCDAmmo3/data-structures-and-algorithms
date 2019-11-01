@@ -19,7 +19,18 @@ describe('base graph method tests', () => {
   });
 
   it('should be able to get all the nodes', () => {
+    // Arrange
+    let graph = new Graph();
+    graph.add(1);
+    graph.add(2);
+    graph.add(3);
+    graph.add(4);
 
+    // Act
+    let results = graph.lookAtThisGraph();
+
+    // Assert
+    expect(results).toEqual([1,2,3,4]);
   });
 
   it('should be able to get the neighbors connected by an edge for one node', () => {
