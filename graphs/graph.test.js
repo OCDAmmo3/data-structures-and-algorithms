@@ -71,7 +71,7 @@ describe('base graph method tests', () => {
     expect(result).toEqual([2,3]);
   });
 
-  xit('should give a size back that is the amount of nodes in the graph', () => {
+  it('should give a size back that is the amount of nodes in the graph', () => {
     // Arrange
     let graph = new Graph();
     graph.addNode(1);

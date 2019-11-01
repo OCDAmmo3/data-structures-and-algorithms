@@ -1,7 +1,5 @@
 'use strict';
 
-const Hash = require('../hash-tables/hash-table');
-
 class Node {
   constructor(value) {
     this.value = value;
@@ -12,6 +10,7 @@ class Node {
 class Graph {
   constructor() {
     this.nodes = [];
+    this.size = 0;
   }
 
   addNode(value) {
@@ -20,6 +19,7 @@ class Graph {
     }
     let node = new Node(value);
     this.nodes.push(node);
+    this.size++;
     return node.value;
   }
 
