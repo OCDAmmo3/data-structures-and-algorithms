@@ -40,7 +40,7 @@ describe('base graph method tests', () => {
     expect(graph.lookAtThisGraph()).toEqual([{value: 15, neighbors: [12]}, {value: 12, neighbors: [15]}])
   });
 
-  xit('should be able to get all the nodes', () => {
+  it('should be able to get all the nodes', () => {
     // Arrange
     let graph = new Graph();
     graph.addNode(1);
@@ -52,7 +52,7 @@ describe('base graph method tests', () => {
     let results = graph.lookAtThisGraph();
 
     // Assert
-    expect(results).toEqual([1,2,3,4]);
+    expect(results).toEqual([{value: 1, neighbors: []}, {value: 2, neighbors: []}, {value: 3, neighbors: []}, {value: 4, neighbors: []}]);
   });
 
   xit('should be able to get the neighbors connected by an edge for one node', () => {

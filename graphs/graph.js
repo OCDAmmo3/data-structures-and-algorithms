@@ -22,15 +22,18 @@ class Graph {
   }
 
   addEdge(val1, val2) {
-    if(!val1) {
+    let temp = [];
+    this.nodes.forEach(value => {
+      temp.push(Object.values(value)[0])
+    });
+    if(!temp.includes(val1)) {
       this.addNode(val1);
     }
-    if(!val2) {
+    if(!temp.includes(val2)) {
       this.addNode(val2);
     }
     let index1 = this.nodes.findIndex(index => index.value === val1);
     let index2 = this.nodes.findIndex(index => index.value === val2);
-    console.log(this.nodes[index1].neighbors);
     this.nodes[index1].neighbors.push(val2);
     this.nodes[index2].neighbors.push(val1);
   }
