@@ -15,6 +15,19 @@ describe('base graph method tests', () => {
     expect(graph.lookAtThisGraph()).toEqual([15]);
   });
 
+  it('should add a new node if trying to add an edge between a node and another node that doesn\'t exist', () => {
+    // Arrange
+    let graph = new Graph();
+    graph.addNode(1);
+    graph.addNode(2);
+
+    // Act
+    graph.addEdge(1,3);
+
+    // Assert
+    expect(graph.lookAtThisGraph()).toBe([{value: 1, neighbors: [3]}, {value: 2, neighbors: []}, {value: 3, neighbors: [1]}]);
+  });
+
   it('should add a new edge to the graph by adding each node to the others\' neighbor', () => {
     // Arrange
     let graph = new Graph();
@@ -25,7 +38,7 @@ describe('base graph method tests', () => {
     graph.addEdge(12,15);
 
     // Assert
-    expect(graph.lookAtThisGraph()).toBe([{value: 12, neighbors: [{value: 15, neighbors: 15}]}])
+    expect(graph.lookAtThisGraph()).toBe([{value: 12, neighbors: [15]}])
   });
 
   it('should be able to get all the nodes', () => {
