@@ -11,8 +11,7 @@ describe('base graph method tests', () => {
     let result = graph.addNode(15);
 
     // Assert
-    expect(result).toBe(15)
-    expect(graph.lookAtThisGraph()).toEqual([15]);
+    expect(result).toBe(15);
   });
 
   it('should add a new node if trying to add an edge between a node and another node that doesn\'t exist', () => {
