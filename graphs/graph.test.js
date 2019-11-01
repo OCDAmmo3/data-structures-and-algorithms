@@ -8,7 +8,7 @@ describe('base graph method tests', () => {
     let graph = new Graph();
 
     // Act
-    let result = graph.lookAtThisGraphsNewNode(15);
+    let result = graph.addNode(15);
 
     // Assert
     expect(result).toBe(15)
@@ -18,11 +18,11 @@ describe('base graph method tests', () => {
   it('should add a new edge to the graph by adding each node to the others\' neighbor', () => {
     // Arrange
     let graph = new Graph();
-    graph.lookAtThisGraphsNewNode(15);
-    graph.lookAtThisGraphsNewNode(12);
+    graph.addNode(15);
+    graph.addNode(12);
 
     // Act
-    graph.lookAtThisGraphsNewEdge(12, 15);
+    graph.addEdge(12,15);
 
     // Assert
     expect(graph.lookAtThisGraph()).toBe([{value: 12, neighbors: [{value: 15, neighbors: 15}]}])
@@ -31,10 +31,10 @@ describe('base graph method tests', () => {
   it('should be able to get all the nodes', () => {
     // Arrange
     let graph = new Graph();
-    graph.lookAtThisGraphsNewNode(1);
-    graph.lookAtThisGraphsNewNode(2);
-    graph.lookAtThisGraphsNewNode(3);
-    graph.lookAtThisGraphsNewNode(4);
+    graph.addNode(1);
+    graph.addNode(2);
+    graph.addNode(3);
+    graph.addNode(4);
 
     // Act
     let results = graph.lookAtThisGraph();
@@ -44,7 +44,19 @@ describe('base graph method tests', () => {
   });
 
   it('should be able to get the neighbors connected by an edge for one node', () => {
+    // Arrange
+    let graph = new Graph();
+    graph.addNode(1);
+    graph.addNode(2);
+    graph.addNode(3);
+    graph.addEdge(1,2);
+    graph.addEdge(1,3);
 
+    // Act
+    let result = graph.getNeighbors(1);
+
+    // Assert
+    expect(result).toBe([2,3]);
   });
 
   it('should give a size back that is the amount of nodes in the graph', () => {
