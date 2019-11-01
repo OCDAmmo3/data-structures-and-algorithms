@@ -60,6 +60,19 @@ describe('base graph method tests', () => {
   });
 
   it('should give a size back that is the amount of nodes in the graph', () => {
+    // Arrange
+    let graph = new Graph();
+    graph.addNode(1);
+    graph.addNode(2);
+    graph.addNode(3);
+    graph.addEdge(1,2);
+    graph.addNode(4);
+    graph.addEdge(1,4);
 
+    // Act
+    let result = graph.size;
+
+    // Assert
+    expect(result).toBe(4);
   });
 });
