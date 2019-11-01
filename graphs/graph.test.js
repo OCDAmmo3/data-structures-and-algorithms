@@ -55,7 +55,7 @@ describe('base graph method tests', () => {
     expect(results).toEqual([{value: 1, neighbors: []}, {value: 2, neighbors: []}, {value: 3, neighbors: []}, {value: 4, neighbors: []}]);
   });
 
-  xit('should be able to get the neighbors connected by an edge for one node', () => {
+  it('should be able to get the neighbors connected by an edge for one node', () => {
     // Arrange
     let graph = new Graph();
     graph.addNode(1);

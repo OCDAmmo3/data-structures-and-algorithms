@@ -1,5 +1,7 @@
 'use strict';
 
+const Hash = require('../hash-tables/hash-table');
+
 class Node {
   constructor(value) {
     this.value = value;
@@ -24,7 +26,7 @@ class Graph {
   addEdge(val1, val2) {
     let temp = [];
     this.nodes.forEach(value => {
-      temp.push(Object.values(value)[0])
+      temp.push(Object.values(value)[0]);
     });
     if(!temp.includes(val1)) {
       this.addNode(val1);
@@ -40,6 +42,11 @@ class Graph {
 
   lookAtThisGraph() {
     return this.nodes;
+  }
+
+  getNeighbors(value) {
+    let index = this.nodes.findIndex(index => index.value === value);
+    return this.nodes[index].neighbors;
   }
 }
 
