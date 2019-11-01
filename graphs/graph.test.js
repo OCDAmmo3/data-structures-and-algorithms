@@ -8,23 +8,33 @@ describe('base graph method tests', () => {
     let graph = new Graph();
 
     // Act
-    graph.add(15);
+    let result = graph.lookAtThisGraphsNewNode(15);
 
     // Assert
+    expect(result).toBe(15)
     expect(graph.lookAtThisGraph()).toEqual([15]);
   });
 
   it('should add a new edge to the graph by adding each node to the others\' neighbor', () => {
+    // Arrange
+    let graph = new Graph();
+    graph.lookAtThisGraphsNewNode(15);
+    graph.lookAtThisGraphsNewNode(12);
 
+    // Act
+    graph.lookAtThisGraphsNewEdge(12, 15);
+
+    // Assert
+    expect(graph.lookAtThisGraph()).toBe([{value: 12, neighbors: [{value: 15, neighbors: 15}]}])
   });
 
   it('should be able to get all the nodes', () => {
     // Arrange
     let graph = new Graph();
-    graph.add(1);
-    graph.add(2);
-    graph.add(3);
-    graph.add(4);
+    graph.lookAtThisGraphsNewNode(1);
+    graph.lookAtThisGraphsNewNode(2);
+    graph.lookAtThisGraphsNewNode(3);
+    graph.lookAtThisGraphsNewNode(4);
 
     // Act
     let results = graph.lookAtThisGraph();
