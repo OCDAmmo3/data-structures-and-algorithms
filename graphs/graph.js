@@ -43,7 +43,7 @@ class Graph {
   lookAtThisGraph() {
     let array = [];
     this.nodes.forEach(node => {
-      array.push(Object.values(node)[0]);
+      array.push(node.value);
     });
     return array;
   }
@@ -51,6 +51,18 @@ class Graph {
   getNeighbors(value) {
     let index = this.nodes.findIndex(index => index.value === value);
     return this.nodes[index].neighbors;
+  }
+
+  breadthTraversal(start = this.nodes[0]) {
+    let array = [];
+    array.push(start.value);
+    let temp = start;
+    temp.neighbors.forEach(neighbor => {
+      if(!array.includes(neighbor)) {
+        array.push(neighbor)
+      }
+    })
+    return array;
   }
 }
 
