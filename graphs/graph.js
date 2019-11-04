@@ -41,7 +41,11 @@ class Graph {
   }
 
   lookAtThisGraph() {
-    return this.nodes;
+    let array = [];
+    this.nodes.forEach(node => {
+      array.push(Object.values(node)[0]);
+    });
+    return array;
   }
 
   getNeighbors(value) {
