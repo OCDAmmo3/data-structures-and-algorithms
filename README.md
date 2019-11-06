@@ -1,9 +1,9 @@
-# Code Challenge 36
+# Code Challenge 37
 
-## Breadth Traversal
+## Get Edge
 
 ### Jon Struve
 
 ### Links and Resources
-* [submission PR](https://github.com/OCDAmmo3/data-structures-and-algorithms/pull/44)
+* [submission PR](https://github.com/OCDAmmo3/data-structures-and-algorithms/pull/45)
 * [travis](https://travis-ci.com/OCDAmmo3/data-structures-and-algorithms/builds/134617408)
