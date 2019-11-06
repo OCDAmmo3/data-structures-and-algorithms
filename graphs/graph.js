@@ -40,10 +40,9 @@ class Graph {
       this.addNode(val2);
     }
     let index1 = this.nodes.get(node1);
-    console.log(index1)
-    index1.neighbors.push(new Edge(node2, weight));
+    index1.push(new Edge(node2, weight));
     let index2 = this.nodes.get(node2);
-    index2.neighbors.push(new Edge(node1, weight));
+    index2.push(new Edge(node1, weight));
   }
 
   lookAtThisGraph() {
