@@ -1,5 +1,7 @@
 'use strict';
 
+const Queue = require('../stacks-and-queues/queues/queues');
+
 class Node {
   constructor(value) {
     this.value = value;
@@ -7,10 +9,17 @@ class Node {
   }
 }
 
+class Edge {
+  constructor(node, weight = 1) {
+    this.node = node;
+    this.weight = weight;
+  }
+}
+
 class Graph {
   constructor() {
     this.nodes = [];
-    this.size = 0;
+    this.size = this.nodes.length;
   }
 
   addNode(value) {
@@ -19,11 +28,10 @@ class Graph {
     }
     let node = new Node(value);
     this.nodes.push(node);
-    this.size++;
-    return node.value;
+    return node;
   }
 
-  addEdge(val1, val2) {
+  addEdge(val1, val2, weight) {
     let temp = [];
     this.nodes.forEach(value => {
       temp.push(Object.values(value)[0]);
@@ -41,11 +49,7 @@ class Graph {
   }
 
   lookAtThisGraph() {
-    let array = [];
-    this.nodes.forEach(node => {
-      array.push(node.value);
-    });
-    return array;
+    return this.nodes;
   }
 
   getNeighbors(value) {
@@ -55,13 +59,14 @@ class Graph {
 
   breadthTraversal(start = this.nodes[0]) {
     let array = [];
-    array.push(start.value);
+    let queue = new Queue();
     let temp = start;
     temp.neighbors.forEach(neighbor => {
       if(!array.includes(neighbor)) {
         array.push(neighbor)
       }
     })
+    queue.enqueue(start);
     return array;
   }
 }
