@@ -18,8 +18,7 @@ class Edge {
 
 class Graph {
   constructor() {
-    this.nodes = [];
-    this.size = this.nodes.length;
+    this.nodes = new Map();
   }
 
   addNode(value) {
@@ -27,25 +26,24 @@ class Graph {
       return 'I need a value';
     }
     let node = new Node(value);
-    this.nodes.push(node);
+    this.nodes.set(node, []);
     return node;
   }
 
-  addEdge(val1, val2, weight) {
-    let temp = [];
-    this.nodes.forEach(value => {
-      temp.push(Object.values(value)[0]);
-    });
-    if(!temp.includes(val1)) {
+  addEdge(val1, val2, weight = 1) {
+    let node1 = new Node(val1);
+    let node2 = new Node(val2);
+    if(!this.nodes.has(node1)) {
       this.addNode(val1);
     }
-    if(!temp.includes(val2)) {
+    if(!this.nodes.has(node2)) {
       this.addNode(val2);
     }
-    let index1 = this.nodes.findIndex(index => index.value === val1);
-    let index2 = this.nodes.findIndex(index => index.value === val2);
-    this.nodes[index1].neighbors.push(val2);
-    this.nodes[index2].neighbors.push(val1);
+    let index1 = this.nodes.get(node1);
+    console.log(index1)
+    index1.neighbors.push(new Edge(node2, weight));
+    let index2 = this.nodes.get(node2);
+    index2.neighbors.push(new Edge(node1, weight));
   }
 
   lookAtThisGraph() {
@@ -53,20 +51,35 @@ class Graph {
   }
 
   getNeighbors(value) {
-    let index = this.nodes.findIndex(index => index.value === value);
-    return this.nodes[index].neighbors;
+    let node = new Node(value);
+    if(!this.nodes.has(node)) {
+      this.addNode(value);
+    }
+    return [...this.nodes.get(node)];
   }
 
   breadthTraversal(start = this.nodes[0]) {
+    if(!start) {
+      return 'I need a node to start at.';
+    }
     let array = [];
-    let queue = new Queue();
-    let temp = start;
-    temp.neighbors.forEach(neighbor => {
-      if(!array.includes(neighbor)) {
-        array.push(neighbor)
+    let visited = new Set();
+    array.push(start);
+    visited.add(start);
+    while(array.length) {
+      let current = array.shift();
+      console.log(current);
+      let neighbors = this.getNeighbors(current);
+      for(let neighbor of neighbors) {
+        let neighborNode = neighbor.node;
+        if(visited.has(neighborNode)) {
+          continue;
+        } else {
+          visited.add(neighborNode);
+        }
+        array.push(neighborNode);
       }
-    })
-    queue.enqueue(start);
+    }
     return array;
   }
 }
