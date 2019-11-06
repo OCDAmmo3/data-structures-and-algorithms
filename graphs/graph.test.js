@@ -11,7 +11,7 @@ describe('base graph method tests', () => {
     let result = graph.addNode(15);
 
     // Assert
-    expect(result).toBe(15);
+    expect(result).toHaveProperty('value', 15);
   });
 
   it('should add a new node if trying to add an edge between a node and another node that doesn\'t exist', () => {
@@ -22,9 +22,11 @@ describe('base graph method tests', () => {
 
     // Act
     graph.addEdge(1,3);
+    let result = graph.lookAtThisGraph();
 
     // Assert
-    expect(graph.lookAtThisGraph()).toEqual([1,2,3]);
+    expect(result[0]).toHaveProperty('value', 1);
+    expect(result[0]).toHaveProperty('neighbors', [3]);
   });
 
   it('should add a new edge to the graph by adding each node to the others\' neighbor', () => {
@@ -35,9 +37,13 @@ describe('base graph method tests', () => {
 
     // Act
     graph.addEdge(12,15);
+    let result = graph.lookAtThisGraph();
 
     // Assert
-    expect(graph.lookAtThisGraph()).toEqual([15,12])
+    expect(result[0]).toHaveProperty('value', 15);
+    expect(result[0]).toHaveProperty('neighbors', [12]);
+    expect(result[1]).toHaveProperty('value', 12);
+    expect(result[1]).toHaveProperty('neighbors', [15]);
   });
 
   it('should be able to get all the nodes', () => {
@@ -52,7 +58,10 @@ describe('base graph method tests', () => {
     let results = graph.lookAtThisGraph();
 
     // Assert
-    expect(results).toEqual([1,2,3,4]);
+    expect(results[0]).toEqual({value: 1, neighbors: []});
+    expect(results[1]).toEqual({value: 2, neighbors: []});
+    expect(results[2]).toEqual({value: 3, neighbors: []});
+    expect(results[3]).toEqual({value: 4, neighbors: []});
   });
 
   it('should be able to get the neighbors connected by an edge for one node', () => {
@@ -82,7 +91,7 @@ describe('base graph method tests', () => {
     graph.addEdge(1,4);
 
     // Act
-    let result = graph.size;
+    let result = graph.nodes.length;
 
     // Assert
     expect(result).toBe(4);
