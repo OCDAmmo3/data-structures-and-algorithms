@@ -24,7 +24,7 @@ describe('base graph method tests', () => {
     graph.addEdge(1,3);
 
     // Assert
-    expect(graph.lookAtThisGraph()).toEqual([{value: 1, neighbors: [3]}, {value: 2, neighbors: []}, {value: 3, neighbors: [1]}]);
+    expect(graph.lookAtThisGraph()).toEqual([1,2,3]);
   });
 
   it('should add a new edge to the graph by adding each node to the others\' neighbor', () => {
@@ -37,7 +37,7 @@ describe('base graph method tests', () => {
     graph.addEdge(12,15);
 
     // Assert
-    expect(graph.lookAtThisGraph()).toEqual([{value: 15, neighbors: [12]}, {value: 12, neighbors: [15]}])
+    expect(graph.lookAtThisGraph()).toEqual([15,12])
   });
 
   it('should be able to get all the nodes', () => {
@@ -52,7 +52,7 @@ describe('base graph method tests', () => {
     let results = graph.lookAtThisGraph();
 
     // Assert
-    expect(results).toEqual([{value: 1, neighbors: []}, {value: 2, neighbors: []}, {value: 3, neighbors: []}, {value: 4, neighbors: []}]);
+    expect(results).toEqual([1,2,3,4]);
   });
 
   it('should be able to get the neighbors connected by an edge for one node', () => {
@@ -86,5 +86,29 @@ describe('base graph method tests', () => {
 
     // Assert
     expect(result).toBe(4);
+  });
+
+  it('should give a breadth first search for a graph', () => {
+    // Arrange
+    let graph = new Graph();
+    graph.addNode(1);
+    graph.addNode(2);
+    graph.addNode(3);
+    graph.addNode(4);
+    graph.addNode(5);
+    graph.addNode(6);
+    graph.addEdge(1,4);
+    graph.addEdge(1,5);
+    graph.addEdge(4,2);
+    graph.addEdge(4,3);
+    graph.addEdge(6,5);
+    graph.addEdge(2,3);
+    graph.addEdge(3,5);
+
+    // Act
+    let result = graph.breadthTraversal();
+
+    // Assert
+    expect(result).toEqual([1,4,5,2,3,6]);
   });
 });

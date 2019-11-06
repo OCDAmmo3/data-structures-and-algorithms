@@ -41,12 +41,28 @@ class Graph {
   }
 
   lookAtThisGraph() {
-    return this.nodes;
+    let array = [];
+    this.nodes.forEach(node => {
+      array.push(node.value);
+    });
+    return array;
   }
 
   getNeighbors(value) {
     let index = this.nodes.findIndex(index => index.value === value);
     return this.nodes[index].neighbors;
+  }
+
+  breadthTraversal(start = this.nodes[0]) {
+    let array = [];
+    array.push(start.value);
+    let temp = start;
+    temp.neighbors.forEach(neighbor => {
+      if(!array.includes(neighbor)) {
+        array.push(neighbor)
+      }
+    })
+    return array;
   }
 }
 
