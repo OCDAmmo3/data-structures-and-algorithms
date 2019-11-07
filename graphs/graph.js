@@ -81,6 +81,16 @@ class Graph {
     }
     return array;
   }
+
+  depthTraversal(start = this.nodes[0]) {
+    if(!start) {
+      return 'I need a node.';
+    }
+    let array = [];
+    let visited = new Set();
+    array.push(start);
+    visited.add(start);
+  }
 }
 
 module.exports = Graph;
