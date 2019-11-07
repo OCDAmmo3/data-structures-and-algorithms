@@ -120,4 +120,24 @@ describe('base graph method tests', () => {
     // Assert
     expect(result).toEqual([1,4,5,2,3,6]);
   });
+
+  it('should return an array with the values in depth first order', () => {
+    // Arrange
+    let graph = new Graph();
+    graph.addNode(1);
+    graph.addNode(2);
+    graph.addNode(3);
+    graph.addNode(4);
+    graph.addNode(5);
+    graph.addEdge(1,5);
+    graph.addEdge(2,4);
+    graph.addEdge(2,3);
+    graph.addEdge(3,5);
+
+    // Act
+    let result = graph.depthTraversal();
+
+    // Assert
+    expect(result).toEqual([1,5,3,2,4]);
+  });
 });
